@@ -1,0 +1,49 @@
+﻿@model EntityLayer.Concrete.Portfolio
+@{
+    ViewData["Title"] = "EditPortfolio";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+@using (Html.BeginForm("EditPortfolio", "Portfolio", FormMethod.Post))
+{
+    <div class="col-md-16 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <p class="card-description"> <code>PROJE DÜZENLEME</code>  </p>
+                <form class="forms-sample">
+                    <div class="form-group row">
+                        <label for="PortfolioName" class="col-sm-3 col-form-label">Proje Adı</label>
+                        <div class="col-sm-9">
+                            @Html.TextBoxFor(x=>x.Name,new{ @class="form-control"})
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="PortfolioPlatform" class="col-sm-3 col-form-label">Platform</label>
+                        <div class="col-sm-9">
+                            @Html.TextBoxFor(x=>x.Platform,new{ @class="form-control"})
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="PortfolioPrice" class="col-sm-3 col-form-label">Ücret</label>
+                        <div class="col-sm-9">
+                            @Html.TextBoxFor(x=>x.Price,new{ @class="form-control"})
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="PortfolioStatus" class="col-sm-3 col-form-label">Durum</label>
+                        <div class="col-sm-9">
+                            @Html.TextBoxFor(x=>x.Status,new{ @class="form-control"})
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="PortfolioValue" class="col-sm-3 col-form-label">Tamamlanma Oranı</label>
+                        <div class="col-sm-9">
+                            @Html.TextBoxFor(x=>x.Value,new{ @class="form-control"})
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary mr-2">Kaydet</button>
+                    <button class="btn btn-dark">İptal</button>
+                </form>
+            </div>
+        </div>
+    </div>
+}

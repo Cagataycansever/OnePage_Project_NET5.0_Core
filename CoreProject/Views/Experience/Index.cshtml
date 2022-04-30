@@ -1,0 +1,93 @@
+﻿@using EntityLayer.Concrete
+@model List<Experience>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+<div class="page-header">
+              
+              <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="#">Tables</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Basic tables</li>
+                </ol>
+              </nav>
+            </div>
+<div class="row">
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <p class="card-description"> <code>DENEYİMLER</code>  </p>
+                <div class="table-responsive">
+                    <table class="table align-items-center table-flush">
+                        <thead class="thead-light">
+                            <tr>
+                                <th scope="col" class="sort" data-sort="name">#</th>
+                                <th scope="col" class="sort" data-sort="name">Deneyim Adı</th>
+                                <th scope="col" class="sort" data-sort="name">Görev / Tarih</th>
+                                <th scope="col" class="sort" data-sort="name">Açıklama</th>
+                                <th scope="col" class="sort" data-sort="name">Düzenle</th>
+                                <th scope="col" class="sort" data-sort="name">Sil</th>
+                            </tr>
+                        </thead>
+                        <tbody class="list">
+
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <th scope="row">
+                                        <div class="media align-items-center">
+                                            <div class="media-body">
+                                                <span class="name mb-0 text-sm"><b>@item.ExperienceID</b></span>
+                                            </div>
+                                        </div>
+                                    </th>
+                                    <td>
+                                        <div class="media align-items-center">
+                                            <div class="media-body">
+                                                <span class="name mb-0 text-sm">@item.Name</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="media align-items-center">
+                                            <div class="media-body">
+                                                <span class="name mb-0 text-sm">@item.Date</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="media align-items-center">
+                                            <div class="media-body">
+                                                <span class="name mb-0 text-sm">@item.Description.Substring(0,8);</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="media align-items-center">
+                                            <div class="media-body">
+                                                <span class="name mb-0 text-sm"><a href="/Experience/EditExperience/@item.ExperienceID" class="btn btn-outline-success">Düzenle</a></span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="media align-items-center">
+                                            <div class="media-body">
+                                                <span class="name mb-0 text-sm"><a href="/Experience/DeleteExperience/@item.ExperienceID" class="btn btn-outline-danger">Sil</a></span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    <br />
+                    <a href="/Experience/AddExperience" class="btn btn-outline-primary">Ekle</a>
+                    <br />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,44 @@
+﻿@model EntityLayer.Concrete.Experience
+@{
+    ViewData["Title"] = "EditExperience";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+@using (Html.BeginForm("EditExperience", "Experience", FormMethod.Post))
+{
+    <div class="col-md-16 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <p class="card-description"> <code>DENEYİM DÜZENLEME</code>  </p>
+                <form class="forms-sample">
+                    <div class="form-group row">
+                        <label for="ExperienceName" class="col-sm-3 col-form-label">Deneyim Adı</label>
+                        <div class="col-sm-9">
+                            @Html.TextBoxFor(x=>x.Name,new{ @class="form-control"})
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="ExperienceDate" class="col-sm-3 col-form-label">Tarih</label>
+                        <div class="col-sm-9">
+                          @Html.TextBoxFor(x=>x.Date,new{ @class="form-control"})
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="ExperienceImage" class="col-sm-3 col-form-label">Görsel URL</label>
+                        <div class="col-sm-9">
+                            @Html.TextBoxFor(x=>x.ImageURL,new{ @class="form-control"})
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="ExperienceDescription" class="col-sm-3 col-form-label">Açıklama</label>
+                        <div class="col-sm-9">
+                            @Html.TextAreaFor(x=>x.Description,6,3,new{ @class="form-control"})
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary mr-2">Kaydet</button>
+                    <button class="btn btn-dark">İptal</button>
+                </form>
+            </div>
+        </div>
+    </div>
+}
